@@ -2,14 +2,15 @@ import React, { useEffect } from "react";
 import { Redirect } from "react-router";
 import Logo from "../assets/logo 2.png";
 import { useDispatch, useSelector } from "react-redux";
-import { getData } from "../actions/actions";
-import setAuthToken from "../utils/setAuthToken";
+import { getData, checkTokenValidity } from "../actions/actions";
 import Spinner from "../assets/Fading squares.gif";
 
 function Dashboard() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getData());
+    dispatch(checkTokenValidity());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const token = localStorage.getItem("token");
   const { auth } = useSelector((state) => state);
@@ -17,7 +18,22 @@ function Dashboard() {
   if (!token) {
     return <Redirect to="/login" />;
   }
-  setAuthToken(token);
+
+  const countPlanType = (auth) => {
+    auth = auth?.data;
+    console.log(auth.length, "auth");
+    let count = 0;
+
+    for (let i = 0; i < auth.length; i++) {
+      if (auth[i].hasOwnProperty("planType")) {
+        count = count + 1;
+      }
+    }
+
+    console.log(count, "counts");
+    return count;
+  };
+
   console.log(auth, "auths");
   return (
     <div className="main--container">
@@ -224,7 +240,9 @@ function Dashboard() {
           <div className="dashboard-table-body__container">
             <div className="">
               <ul className="dashboard-table-innerlinks__container">
-                <li className="innerlink text-green">screen protection (3)</li>
+                <li className="innerlink text-green">
+                  screen protection ({countPlanType(auth)})
+                </li>
                 <li className="innerlink text-mute">service contract (0)</li>
               </ul>
             </div>

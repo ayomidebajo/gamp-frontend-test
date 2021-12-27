@@ -117,10 +117,20 @@
   border: 1px solid #49a05c;
   border-radius: 5px;
   width: 130px;
-  margin: auto 20px 0 30px;
+  margin: auto 30px 0 30px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.profile-drop__triangle {
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin-left: 5px;
+  border-top: 4px solid #49a05c;
 }
 
 .sidebar {
@@ -196,6 +206,7 @@
 
 .nav-link {
   margin: 0 20px 0 20px;
+  cursor: pointer;
 }
 
 .nav-btn {
@@ -315,10 +326,10 @@
 
 .pages-container {
   display: flex;
-  justify-content: end;
-  height: 50px;
+  justify-content: flex-end;
+  height: 40px;
   align-items: center;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .page {

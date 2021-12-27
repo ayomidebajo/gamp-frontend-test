@@ -3,10 +3,12 @@ import {
   GET_ERROR_STATUS_CODE,
   START_LOADING_DATA,
   END_LOADING_DATA,
+  CHECK_TOKEN_VALIDITY,
 } from "../types/type";
 import axios from "axios";
+import decode from "jwt-decode";
+import setAuthToken from "../utils/setAuthToken";
 
-const token = localStorage.getItem("token");
 export const loginUser = (data) => {
   return async (dispatch) => {
     try {
@@ -22,7 +24,6 @@ export const loginUser = (data) => {
         window.location.href = "/";
       }
     } catch (error) {
-      //   dispatch({ type: AUTH_LOADING_ENDS });
       if (error.response.status === 500) {
         dispatch({
           type: GET_ERROR_STATUS_CODE,
@@ -59,6 +60,25 @@ export const getData = () => {
       type: END_LOADING_DATA,
       payload: res.data.data,
     });
-    console.log(res, "rests");
+  };
+};
+
+export const checkTokenValidity = (token) => {
+  return async (dispatch) => {
+    if (token) {
+      dispatch({
+        type: CHECK_TOKEN_VALIDITY,
+      });
+
+      const { exp } = decode(token);
+
+      // console.log(exp, Date.now(), "expiry");
+      if (exp < Date.now() / 1000) {
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      }
+      setAuthToken(token);
+    }
+    return;
   };
 };
