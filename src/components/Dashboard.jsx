@@ -120,8 +120,8 @@ function Dashboard() {
                 Home
               </div>
             </li>
-            <li className="sidebar-link">
-              <div className="sidebar-link__child">
+            <li className="sidebar-link active">
+              <div className="sidebar-link__child ">
                 <span>
                   <svg
                     width="18"
