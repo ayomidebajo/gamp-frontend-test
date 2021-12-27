@@ -236,7 +236,7 @@ function Dashboard() {
           <div className="dashboard-table-body__container">
             <div className="">
               <ul className="dashboard-table-innerlinks__container">
-                <li className="innerlink text-green">
+                <li className="innerlink text-green active-innerlink">
                   screen protection ({countPlanType(auth)})
                 </li>
                 <li className="innerlink text-mute">service contract (0)</li>
