@@ -21,7 +21,6 @@ function Dashboard() {
 
   const countPlanType = (auth) => {
     auth = auth?.data;
-    console.log(auth.length, "auth");
     let count = 0;
 
     for (let i = 0; i < auth.length; i++) {
@@ -29,12 +28,9 @@ function Dashboard() {
         count = count + 1;
       }
     }
-
-    console.log(count, "counts");
     return count;
   };
 
-  console.log(auth, "auths");
   return (
     <div className="main--container">
       <div className="nav-bar--container">
