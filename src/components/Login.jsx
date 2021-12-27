@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Logo from "../assets/logo 2.png";
 import Gamp from "../assets/gamp-artboard 1.png";
-import { loginUser } from "../actions/authActions";
+import { loginUser } from "../actions/actions";
 
 class Login extends Component {
   state = {
