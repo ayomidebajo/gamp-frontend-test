@@ -54,7 +54,6 @@
 }
 
 .input {
-  /* min-width: 60px; */
   width: 100%;
   border: 0.5px solid #858585;
   height: 40px;
@@ -85,7 +84,7 @@
 }
 
 .dashboard--container {
-  display: grid;
+  display: flex;
   width: 90%;
   margin: 40px auto 0 auto;
   gap: 1em;
@@ -134,18 +133,16 @@
 }
 
 .sidebar {
-  grid-column: 1 / span 1;
   grid-row: first-line / 1;
   background-color: #fff;
   border-radius: 10px;
-  min-width: 236px;
-  max-width: 100%;
+  width: 236px;
   height: 500px;
 }
 
 .dashboard-table__container {
-  grid-column: 2 / span 4;
   grid-row: first-line / 1;
+  width: calc(100% - 235px);
 }
 
 .profile-sidebar__child {
@@ -443,6 +440,7 @@
   .dashboard--container {
     margin: 20px auto 0 auto;
     width: 100%;
+    display: grid;
   }
 
   .nav-bar--container {
@@ -454,7 +452,7 @@
   }
 
   .dashboard-table__container {
-    grid-column: 1 / span 4;
+    width: 100%;
   }
 
   .table-card {
@@ -463,14 +461,6 @@
   }
 }
 
-/* @media screen and (min-device-width: 280px) and (max-device-width: 300px) {
-  .dashboard-table-innerlinks__container {
-    gap: 0;
-  }
-  .table-card {
-    grid-template-columns: 1fr;
-  }
-} */
 /* tablets */
 @media screen and (min-device-width: 481px) and (max-device-width: 768px) {
   .grid--container {

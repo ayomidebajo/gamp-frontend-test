@@ -16,10 +16,8 @@ export const loginUser = (data) => {
         `https://gamp-server-staging.herokuapp.com/v1/auth/login`,
         data
       );
-      console.log(request, "req", data);
       if (request.status === 200) {
         localStorage.setItem("token", request.data?.data?.accesstoken);
-
         dispatch({ type: LOGIN_USER, payload: "stuff" });
         window.location.href = "/";
       }
@@ -72,7 +70,7 @@ export const checkTokenValidity = (token) => {
 
       const { exp } = decode(token);
 
-      // console.log(exp, Date.now(), "expiry");
+      console.log(exp, Date.now() / 1000);
       if (exp < Date.now() / 1000) {
         localStorage.removeItem("token");
         window.location.href = "/login";
