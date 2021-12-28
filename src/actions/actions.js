@@ -70,7 +70,6 @@ export const checkTokenValidity = (token) => {
 
       const { exp } = decode(token);
 
-      console.log(exp, Date.now() / 1000);
       if (exp < Date.now() / 1000) {
         localStorage.removeItem("token");
         window.location.href = "/login";
