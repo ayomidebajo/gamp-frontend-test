@@ -19,57 +19,55 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state, "state");
     this.props.loginUser(this.state);
   };
   render() {
-    console.log(this.props);
     return (
-      <div class="main-auth__container">
-        <div class="flex--container">
-          <div class="grid--container">
-            <div class="auth-mobile">
-              <div class="card-auth">
-                <div class="card-body">
-                  <div class="flex--container">
-                    <img src={Logo} alt="" srcset="" />
+      <div className="main-auth__container">
+        <div className="flex--container">
+          <div className="grid--container">
+            <div className="auth-mobile">
+              <div className="card-auth">
+                <div className="card-body">
+                  <div className="flex--container">
+                    <img src={Logo} alt="logo" />
                   </div>
-                  <form class="form-gap" onSubmit={this.handleSubmit}>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
+                  <form className="form-gap" onSubmit={this.handleSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="exampleInputEmail1">Email address</label>
                       <input
                         type="text"
                         name="email"
-                        class="input"
+                        className="input"
                         onChange={this.handleChange}
                         id="exampleInputEmail1"
                         placeholder="Email address or phone number"
                       />
                     </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
+                    <div className="form-group">
+                      <label htmlFor="exampleInputPassword1">Password</label>
                       <input
                         name="password"
                         type="password"
                         onChange={this.handleChange}
-                        class="input"
+                        className="input"
                         id="exampleInputPassword1"
                         placeholder="password"
                       />
                     </div>
 
-                    <button type="submit" class="login">
+                    <button type="submit" className="login">
                       Log in
                     </button>
 
-                    <div class="copyright-mobile  ">© GAMP</div>
+                    <div className="copyright-mobile  ">© GAMP</div>
                   </form>
                 </div>
               </div>
-              <div class="copyright">© GAMP</div>
+              <div className="copyright">© GAMP</div>
             </div>
-            <div class="design-illus">
-              <img src={Gamp} width="90%" alt="" srcset="" />
+            <div className="design-illus">
+              <img src={Gamp} width="90%" alt="gamp" />
             </div>
           </div>
         </div>

@@ -31,6 +31,28 @@ function Dashboard() {
     return count;
   };
 
+  const dateHandle = (val) => {
+    if (!val) {
+      return;
+    }
+    let date = [];
+    let dateVal;
+    let prependDate = val.split("-");
+    prependDate = prependDate.splice(2);
+    prependDate = prependDate[0];
+    prependDate = prependDate.split("T");
+    prependDate = prependDate.splice(0, 1);
+    prependDate = prependDate[0];
+    dateVal = val.split("-");
+    dateVal = dateVal.splice(0, 2);
+    dateVal = dateVal.join("-");
+    date.push(dateVal, prependDate);
+    date = date.join("-");
+    val = date;
+
+    return val;
+  };
+
   return (
     <div className="main--container">
       <div className="nav-bar--container">
@@ -248,7 +270,9 @@ function Dashboard() {
                   <div className="table-card" key={item._id}>
                     <div className="item">
                       <p>Date purchased</p>
-                      <p className="text-green2 text-bold">{item.createdAt}</p>
+                      <p className="text-green2 text-bold">
+                        {dateHandle(item.createdAt)}
+                      </p>
                     </div>
                     <div className="item">
                       <p>Amount Paid</p>
