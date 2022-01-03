@@ -12,7 +12,7 @@ import setAuthToken from "../utils/setAuthToken";
 export const loginUser = (data) => {
   return async (dispatch) => {
     try {
-      const request = await axios.post(`/api/`, data);
+      const request = await axios.post("/api/", data);
       if (request.status === 200) {
         localStorage.setItem("token", request.data?.data?.accesstoken);
         dispatch({ type: LOGIN_USER, payload: "stuff" });
