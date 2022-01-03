@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/login/*"
-  to = "https://gamp-server-staging.herokuapp.com/v1/auth/login/:splat"
+  to = "https://gamp-server-staging.herokuapp.com/v1/:splat"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
