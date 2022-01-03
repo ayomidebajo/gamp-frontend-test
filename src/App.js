@@ -1,7 +1,7 @@
 import "./styles.css";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import { checkTokenValidity } from "./actions/actions";
 import { store } from "./store";
 
