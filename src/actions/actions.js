@@ -48,7 +48,7 @@ export const getData = () => {
       type: START_LOADING_DATA,
     });
 
-    const res = await axios("/api/plan/spplan/fetch");
+    const res = await axios("/v1/plan/spplan/fetch");
     dispatch({
       type: END_LOADING_DATA,
       payload: res.data.data,
