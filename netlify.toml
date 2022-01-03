@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "/login/v1/*"
+  from = "/v1/*"
   to = "https://gamp-server-staging.herokuapp.com/v1/:splat"
   status = 200
   force = true
