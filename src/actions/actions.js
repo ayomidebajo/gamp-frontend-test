@@ -48,9 +48,7 @@ export const getData = () => {
       type: START_LOADING_DATA,
     });
 
-    const res = await axios(
-      "https://gamp-server-staging.herokuapp.com/v1/v1/plan/spplan/fetch"
-    );
+    const res = await axios("/v1/");
     dispatch({
       type: END_LOADING_DATA,
       payload: res.data.data,
