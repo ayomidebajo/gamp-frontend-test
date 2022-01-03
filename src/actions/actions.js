@@ -12,10 +12,7 @@ import setAuthToken from "../utils/setAuthToken";
 export const loginUser = (data) => {
   return async (dispatch) => {
     try {
-      const request = await axios.post(
-        `https://gamp-server-staging.herokuapp.com/v1/auth/login`,
-        data
-      );
+      const request = await axios.post(`/api/auth/login`, data);
       if (request.status === 200) {
         localStorage.setItem("token", request.data?.data?.accesstoken);
         dispatch({ type: LOGIN_USER, payload: "stuff" });
@@ -51,9 +48,7 @@ export const getData = () => {
       type: START_LOADING_DATA,
     });
 
-    const res = await axios(
-      "https://gamp-server-staging.herokuapp.com/v1/plan/spplan/fetch"
-    );
+    const res = await axios("/api/plan/spplan/fetch");
     dispatch({
       type: END_LOADING_DATA,
       payload: res.data.data,
