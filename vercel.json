@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/login",
+      "destination": "https://gamp-frontend.vercel.app/v1/auth/login/",
+      "permanent": false
+    },
+    {
+      "source": "/fetch",
+      "destination": "https://gamp-frontend.vercel.app/v1/plan/spplan/fetch",
+      "permanent": false
+    }
+  ]
+}
