@@ -1,6 +1,6 @@
 [[redirects]]
   from = "/v1/*"
-  to = "http://api.exchangeratesapi.io/v1/latest?access_key=c44f6dbe65990c47ed0d9832be6c10ad"
+  to = "https://gamp-server-staging.herokuapp.com/v1/"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
