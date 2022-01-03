@@ -12,7 +12,7 @@ import setAuthToken from "../utils/setAuthToken";
 export const loginUser = (data) => {
   return async (dispatch) => {
     try {
-      const request = await axios.post("/login", data);
+      const request = await axios.post("/v1/auth/login/", data);
       if (request.status === 200) {
         localStorage.setItem("token", request.data?.data?.accesstoken);
         dispatch({ type: LOGIN_USER, payload: "stuff" });
@@ -48,7 +48,7 @@ export const getData = () => {
       type: START_LOADING_DATA,
     });
 
-    const res = await axios("/fetch");
+    const res = await axios("/v1/plan/spplan/fetch");
     dispatch({
       type: END_LOADING_DATA,
       payload: res.data.data,
